@@ -18,6 +18,10 @@
 
         public string Content { get; set; }
 
+        public int NewsId { get; set; }
+
+        public News News { get; set; }
+
         public virtual ICollection<Vote> Votes { get; set; }
     }
 }

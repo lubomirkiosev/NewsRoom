@@ -300,7 +300,7 @@ namespace NewsRoom.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("NewsId")
+                    b.Property<int>("NewsId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -350,6 +350,9 @@ namespace NewsRoom.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("SecondTitle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -490,9 +493,11 @@ namespace NewsRoom.Data.Migrations
 
             modelBuilder.Entity("NewsRoom.Data.Models.Comment", b =>
                 {
-                    b.HasOne("NewsRoom.Data.Models.News", null)
+                    b.HasOne("NewsRoom.Data.Models.News", "News")
                         .WithMany("Comments")
-                        .HasForeignKey("NewsId");
+                        .HasForeignKey("NewsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("NewsRoom.Data.Models.ApplicationUser", "User")
                         .WithMany()

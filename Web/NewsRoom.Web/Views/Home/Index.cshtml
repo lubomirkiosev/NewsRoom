@@ -11,19 +11,24 @@
 @foreach (var category in Model)
 {
     <h3>@category.Title</h3>
-    foreach (var news in category.News)
+    <hr />
+
+    foreach (var news in category.News.OrderByDescending(x => x.CreatedOn))
     {
-        <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id">
-            <ul class="list-unstyled">
-                <li class="media">
-                    <img class="mr-3" src="@news.ImageUrl" alt="Generic placeholder image" width="100">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb-1">@news.Title</h5>
-                        @news.ShortContent
-                    </div>
-                </li>
-            </ul>
+        <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id" class="text-decoration-none">
+            <div>
+                <ul class="list-unstyled">
+                    <li class="media">
+                        <img class="mr-3" src="@news.ImageUrl" alt="Generic placeholder image" width="100">
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">@news.Title</h5>
+                            <p class="text-muted">@news.ShortContent</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </a>
     }
+    <br />
 
 }
