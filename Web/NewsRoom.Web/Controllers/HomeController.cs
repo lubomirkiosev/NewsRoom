@@ -5,12 +5,26 @@
     using NewsRoom.Web.ViewModels;
 
     using Microsoft.AspNetCore.Mvc;
+    using NewsRoom.Services.Data;
+    using NewsRoom.Web.ViewModels.Home;
+    using System.Collections.Generic;
+    using System;
 
     public class HomeController : BaseController
     {
+        private readonly INewsService newsService;
+        private readonly ICategoryService categoryService;
+
+        public HomeController(INewsService newsService, ICategoryService categoryService)
+        {
+            this.newsService = newsService;
+            this.categoryService = categoryService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = this.categoryService.GetAll<HomeCategoriesViewModel>();
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

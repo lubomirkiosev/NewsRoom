@@ -1,9 +1,29 @@
 ﻿@using NewsRoom.Common
+@model ICollection<NewsRoom.Web.ViewModels.Home.HomeCategoriesViewModel>
 @{
     this.ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<hr>
+@foreach (var category in Model)
+{
+    <h3>@category.Title</h3>
+    foreach (var news in category.News)
+    {
+        <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id">
+            <ul class="list-unstyled">
+                <li class="media">
+                    <img class="mr-3" src="@news.ImageUrl" alt="Generic placeholder image" width="100">
+                    <div class="media-body">
+                        <h5 class="mt-0 mb-1">@news.Title</h5>
+                        @news.ShortContent
+                    </div>
+                </li>
+            </ul>
+        </a>
+    }
+
+}
