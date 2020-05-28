@@ -10,7 +10,7 @@
 <hr>
 @foreach (var category in Model)
 {
-    <h3>@category.Title</h3>
+<a asp-action="ByName" asp-controller="Categories" asp-route-name="@category.Title"><h3>@category.Title</h3></a>
     <hr />
 
     foreach (var news in category.News.OrderByDescending(x => x.CreatedOn))

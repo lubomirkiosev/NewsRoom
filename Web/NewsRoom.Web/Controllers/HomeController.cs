@@ -1,15 +1,14 @@
 ﻿namespace NewsRoom.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
-
-    using NewsRoom.Web.ViewModels;
+    using System.Linq;
 
     using Microsoft.AspNetCore.Mvc;
     using NewsRoom.Services.Data;
+    using NewsRoom.Web.ViewModels;
     using NewsRoom.Web.ViewModels.Home;
-    using System.Collections.Generic;
-    using System;
-    using System.Linq;
 
     public class HomeController : BaseController
     {

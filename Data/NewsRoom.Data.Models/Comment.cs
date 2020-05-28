@@ -12,6 +12,10 @@
             this.Votes = new HashSet<Vote>();
         }
 
+        public int? ParentId { get; set; }
+
+        public virtual Comment Parent { get; set; }
+
         public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }

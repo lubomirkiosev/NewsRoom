@@ -1,9 +1,8 @@
 ﻿namespace NewsRoom.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using NewsRoom.Data.Models;
     using NewsRoom.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

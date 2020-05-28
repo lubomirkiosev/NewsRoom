@@ -3,12 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using NewsRoom.Data.Common.Repositories;
     using NewsRoom.Data.Models;
     using NewsRoom.Services.Data;
     using NewsRoom.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

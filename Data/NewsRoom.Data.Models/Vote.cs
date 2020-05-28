@@ -1,7 +1,8 @@
 ﻿namespace NewsRoom.Data.Models
 {
-    using NewsRoom.Data.Common.Models;
     using System.ComponentModel.DataAnnotations;
+
+    using NewsRoom.Data.Common.Models;
 
     public class Vote : BaseDeletableModel<int>
     {

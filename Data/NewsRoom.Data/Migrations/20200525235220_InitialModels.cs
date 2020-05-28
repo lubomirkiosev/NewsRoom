@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace NewsRoom.Data.Migrations
+﻿namespace NewsRoom.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class InitialModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -41,7 +42,7 @@ namespace NewsRoom.Data.Migrations
                     ImageUrl = table.Column<string>(nullable: true),
                     CategoryId = table.Column<int>(nullable: false),
                     AuthorId = table.Column<string>(nullable: true),
-                    Approved = table.Column<bool>(nullable: false)
+                    Approved = table.Column<bool>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -72,7 +73,7 @@ namespace NewsRoom.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     UserId = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
-                    NewsId = table.Column<int>(nullable: true)
+                    NewsId = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -103,7 +104,7 @@ namespace NewsRoom.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CommentId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
-                    Type = table.Column<int>(nullable: false)
+                    Type = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {

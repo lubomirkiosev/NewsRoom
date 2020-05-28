@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using NewsRoom.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using NewsRoom.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

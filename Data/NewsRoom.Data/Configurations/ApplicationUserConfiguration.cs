@@ -1,8 +1,8 @@
 ﻿namespace NewsRoom.Data.Configurations
 {
-    using NewsRoom.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using NewsRoom.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

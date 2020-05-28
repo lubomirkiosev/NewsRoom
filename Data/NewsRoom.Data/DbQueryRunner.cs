@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using NewsRoom.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using NewsRoom.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {
