@@ -1,0 +1,17 @@
+﻿@model NewsRoom.Web.ViewModels.SideBarNewsViewModels
+
+<h5>Last news</h5>
+<hr />
+
+@foreach (var news in Model.News)
+{
+    <ul class="list-unstyled">
+        <li class="media">
+            <img class="mr-3" height="50" width="50" src="@news.ImageUrl" alt="image">
+            <div class="media-body">
+                <h5 class="mt-0 mb-1">@news.Title</h5>
+                @Html.Raw(news.SanitizedContent.Substring(0, 100) + "...")
+            </div>
+        </li>
+    </ul>
+}

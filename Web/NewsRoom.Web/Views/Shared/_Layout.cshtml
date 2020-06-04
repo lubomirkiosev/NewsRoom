@@ -35,14 +35,18 @@
             </div>
         </nav>
     </header>
+    <div class="row">
+        <div class="container col-8">
+            <partial name="_CookieConsentPartial" />
+            <main role="main" class="pb-3">
+                @this.RenderBody()
+            </main>
+        </div>
 
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @this.RenderBody()
-        </main>
+        @*<aside class="col-3 magazine-page mt-lg-5 pt-5">
+            <vc:sidebar></vc:sidebar>
+        </aside>*@
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
