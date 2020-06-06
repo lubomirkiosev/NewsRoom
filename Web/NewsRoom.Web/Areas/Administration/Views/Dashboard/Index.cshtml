@@ -3,5 +3,24 @@
     this.ViewData["Title"] = "Admin dashboard";
 }
 
-<h1>@this.ViewData["Title"]</h1>
-Settings: @this.Model.SettingsCount
+<h6>
+    News for approval
+</h6>
+@foreach (var news in Model.News)
+{
+<a asp-controller="News" asp-action="ById" asp-route-id="@news.Id" class="text-decoration-none">
+    <div>
+        <ul class="list-unstyled">
+            <li class="media">
+                <img class="mr-3" src="@news.ImageUrl" alt="Generic placeholder image" width="100">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">@news.Title</h5>
+                    <p class="text-muted">@news.SanitizedShortContent</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</a>
+}
+
+

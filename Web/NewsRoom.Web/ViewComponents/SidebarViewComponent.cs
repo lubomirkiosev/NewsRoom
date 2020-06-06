@@ -26,7 +26,7 @@
         {
             var model = new SideBarNewsViewModels
             {
-                News = this.newsRepository.All().To<NewsViewModel>().OrderByDescending(x => x.CreatedOn).ToList(),
+                News = this.newsRepository.All().To<NewsViewModel>().OrderByDescending(x => x.CreatedOn).Take(5).ToList(),
             };
             return this.View(model);
         }

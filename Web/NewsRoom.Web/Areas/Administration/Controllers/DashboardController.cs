@@ -1,21 +1,28 @@
 ﻿namespace NewsRoom.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+
     using Microsoft.AspNetCore.Mvc;
     using NewsRoom.Services.Data;
     using NewsRoom.Web.ViewModels.Administration.Dashboard;
+    using NewsRoom.Web.ViewModels.Administration.Dashboard.NewsViewModel;
 
     public class DashboardController : AdministrationController
     {
-        private readonly ISettingsService settingsService;
+        private readonly INewsService newsService;
 
-        public DashboardController(ISettingsService settingsService)
+        public DashboardController(INewsService newsService)
         {
-            this.settingsService = settingsService;
+            this.newsService = newsService;
         }
 
         public IActionResult Index()
         {
-            var viewModel = new IndexViewModel { SettingsCount = this.settingsService.GetCount(), };
+            var viewModel = new IndexViewModel
+            {
+                News = this.newsService.GetAll<IndexNewsForApprovalModel>().Where(x => x.Approved == false),
+            };
+
             return this.View(viewModel);
         }
     }

@@ -5,7 +5,7 @@
     using System.Net;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Ganss.XSS;
+
     using NewsRoom.Data.Models;
     using NewsRoom.Services.Mapping;
 

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
     using AutoMapper;
     using Ganss.XSS;
     using NewsRoom.Data.Models;
@@ -37,6 +38,5 @@
                     options.MapFrom(p => p.Votes.Sum(v => (int)v.Type));
                 });
         }
-
     }
 }
