@@ -1,17 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace NewsRoom.Data.Migrations
+﻿namespace NewsRoom.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class VotesCommentId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-
         }
     }
 }

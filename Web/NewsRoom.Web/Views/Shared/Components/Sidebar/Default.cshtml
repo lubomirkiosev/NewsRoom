@@ -1,5 +1,8 @@
 ﻿@model NewsRoom.Web.ViewModels.SideBarNewsViewModels
+@{ 
+    string shortContent;
 
+}
 <h5>Last news</h5>
 <hr />
 
@@ -12,7 +15,10 @@
                     <img class="mr-1" height="50" width="50" src="@news.ImageUrl" alt="image">
                     <div class="media-body">
                         <h6 class="mt-0 mb-1">@news.Title</h6>
-                        @Html.Raw(news.SanitizedContent.Substring(0, 100) + "...")
+                        @if (news.SanitizedContent.Length > 100)
+                        {
+                            shortContent = news.SanitizedContent.Substring(0, 100);
+                        }
                     </div>
                 </div>
             </a>

@@ -8,7 +8,7 @@
 </h6>
 @foreach (var news in Model.News)
 {
-<a asp-controller="News" asp-action="ById" asp-route-id="@news.Id" class="text-decoration-none">
+<a asp-controller="News" asp-action="Edit" asp-route-id="@news.Id" class="text-decoration-none">
     <div>
         <ul class="list-unstyled">
             <li class="media">

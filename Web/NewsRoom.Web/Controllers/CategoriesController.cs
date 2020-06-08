@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
     using NewsRoom.Services.Data;
@@ -27,11 +28,11 @@
         }
 
         [HttpPost]
-        public IActionResult Create(CreateCategoryViewModel input)
+        public async Task<IActionResult> CreateAsync(CreateCategoryViewModel input)
         {
-            var modelId = this.categoriesService.CreateAsync(input.Title, input.Description, input.ImageUrl);
+            var categoryId = await this.categoriesService.CreateAsync(input.Title, input.Description, input.ImageUrl);
             this.TempData["InfoMessage"] = "Category created!";
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction(nameof(this.ById), new { id = categoryId });
         }
 
         public IActionResult ById(int id)

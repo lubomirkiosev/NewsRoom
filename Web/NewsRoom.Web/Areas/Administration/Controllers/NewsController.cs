@@ -13,12 +13,10 @@
     public class NewsController : AdministrationController
     {
         private readonly INewsService newsService;
-        private readonly ICategoryService categoriesService;
 
-        public NewsController(INewsService newsService, ICategoryService categoriesService)
+        public NewsController(INewsService newsService)
         {
             this.newsService = newsService;
-            this.categoriesService = categoriesService;
         }
 
         public IActionResult Index()
@@ -26,16 +24,18 @@
             return this.View();
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-            var viewModel = this.newsService.GetById<EditNewsViewModel>(26);
+            var viewModel = this.newsService.GetById<EditNewsViewModel>(id);
             return this.View(viewModel);
         }
 
         [HttpPost]
         public IActionResult Edit(EditNewsViewModel model)
         {
-            return this.RedirectToAction();
+            this.newsService.Update(model.Id, model.Title, model.SecondTitle, model.Content, model.CategoryId, model.ImageUrl, model.Approved);
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

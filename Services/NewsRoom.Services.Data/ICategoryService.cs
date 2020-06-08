@@ -11,6 +11,6 @@
 
         T GetByName<T>(string name);
 
-        int CreateAsync(string title, string description, string imageUrl);
+        Task<int> CreateAsync(string title, string description, string imageUrl);
     }
 }

@@ -2,8 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Net;
     using System.Text;
-
+    using System.Text.RegularExpressions;
     using Ganss.XSS;
     using NewsRoom.Data.Models;
     using NewsRoom.Services.Mapping;
@@ -18,7 +19,16 @@
 
         public string Content { get; set; }
 
-        public string SanitizedShortContent => this.SanitizedContent.Substring(0, 100);
+        public string SanitizedShortContent
+        {
+            get
+            {
+                var content = WebUtility.HtmlDecode(Regex.Replace(this.Content, @"<[^>]+>", string.Empty));
+                return content.Length > 200
+                    ? content.Substring(0, 200) + "..."
+                    : content;
+            }
+        }
 
         public string ImageUrl { get; set; }
 

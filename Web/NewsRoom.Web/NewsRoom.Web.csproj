@@ -8,6 +8,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+    <ApplicationIcon></ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\stylecop.json" />

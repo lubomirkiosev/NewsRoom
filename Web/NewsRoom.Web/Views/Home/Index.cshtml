@@ -5,17 +5,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
+    <img src="https://99tigers.com/wp-content/uploads/2017/01/7-hbo_the_newsroom-640x360.jpg" width="700" height="200" />
+    <h3>Welcome to @GlobalConstants.SystemName!</h3>
 </div>
 <hr>
 @foreach (var category in Model)
 {
-<a asp-action="ByName" asp-controller="Categories" asp-route-name="@category.Title"><h3>@category.Title</h3></a>
+<a asp-action="ByName" asp-controller="Categories" asp-route-name="@category.Title" class="text-black-50 text-decoration-none"><h3>@category.Title</h3></a>
     <hr />
 
     foreach (var news in category.News.OrderByDescending(x => x.CreatedOn))
     {
-        <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id" class="text-decoration-none">
+        <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id" class="text-decoration-none text-dark">
             <div>
                 <ul class="list-unstyled">
                     <li class="media">

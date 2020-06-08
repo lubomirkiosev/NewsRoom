@@ -269,6 +269,7 @@ namespace NewsRoom.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -286,6 +287,7 @@ namespace NewsRoom.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -307,6 +309,7 @@ namespace NewsRoom.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -333,12 +336,14 @@ namespace NewsRoom.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("AuthorId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
@@ -360,6 +365,7 @@ namespace NewsRoom.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -510,14 +516,18 @@ namespace NewsRoom.Data.Migrations
 
                     b.HasOne("NewsRoom.Data.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("NewsRoom.Data.Models.News", b =>
                 {
                     b.HasOne("NewsRoom.Data.Models.ApplicationUser", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("NewsRoom.Data.Models.Category", "Category")
                         .WithMany("News")

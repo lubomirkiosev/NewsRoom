@@ -10,6 +10,8 @@
 
     public class EditNewsViewModel : IMapFrom<News>, IMapTo<News>
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string SecondTitle { get; set; }

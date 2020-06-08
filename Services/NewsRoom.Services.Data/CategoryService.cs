@@ -19,7 +19,7 @@
             this.categoryRepository = categoryRepository;
         }
 
-        public int CreateAsync(string title, string description, string imageUrl)
+        public async Task<int> CreateAsync(string title, string description, string imageUrl)
         {
             var category = new Category
             {
@@ -28,8 +28,8 @@
                 ImageUrl = imageUrl,
             };
 
-            this.categoryRepository.AddAsync(category);
-            this.categoryRepository.SaveChangesAsync();
+            await this.categoryRepository.AddAsync(category);
+            await this.categoryRepository.SaveChangesAsync();
             return category.Id;
         }
 

@@ -37,6 +37,25 @@
             return news.Id;
         }
 
+        public int Update(int id, string title, string secondTitle, string content, int categoryId, string imageUrl, bool approved)
+        {
+            var news = this.newsRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == id);
+
+            if (news == null)
+            {
+                throw new ArgumentException();
+            }
+
+            news.Title = title;
+            news.SecondTitle = secondTitle;
+            news.Content = content;
+            news.ImageUrl = imageUrl;
+            news.Approved = approved;
+            this.newsRepository.Update(news);
+            this.newsRepository.SaveChangesAsync();
+            return news.Id;
+        }
+
         public IEnumerable<T> GetAll<T>()
         {
             return this.newsRepository.All().To<T>().ToList();

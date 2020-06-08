@@ -30,7 +30,7 @@
         {
             var userId = this.userManager.GetUserId(this.User);
             await this.votesService.VoteAsync(model.CommentId, userId, model.Type);
-            var votes = this.votesService.GetVotes(model.CommentId);
+            this.votesService.GetVotes(model.CommentId);
             return this.Redirect($"/News/ById/26");
         }
     }

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace NewsRoom.Data.Migrations
+﻿namespace NewsRoom.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class RestrictDelete : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

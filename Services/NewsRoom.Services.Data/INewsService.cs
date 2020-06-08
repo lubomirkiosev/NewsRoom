@@ -19,5 +19,7 @@
         IEnumerable<T> GetByCategoryId<T>(int categoryId, int? take, int skip = 0);
 
         int GetCountByCategoryId(int categoryId);
+
+        public int Update(int id, string title, string secondTitle, string content, int categoryId, string imageUrl, bool approved);
     }
 }

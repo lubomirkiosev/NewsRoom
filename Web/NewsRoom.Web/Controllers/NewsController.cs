@@ -6,6 +6,7 @@
     using Microsoft.AspNetCore.Mvc;
     using NewsRoom.Data.Models;
     using NewsRoom.Services.Data;
+    using NewsRoom.Web.ViewModels.Administration.Dashboard.NewsViewModel;
     using NewsRoom.Web.ViewModels.NewsVieModels;
     using NewsRoom.Web.ViewModels.NewsViewModels;
 
@@ -57,6 +58,20 @@
 
             var newsId = await this.newsService.CreateAsync(input.Title, input.SecondTitle, input.Content, input.CategoryId, input.ImageUrl, user.Id);
             this.TempData["InfoMessage"] = "News created!";
+            return this.RedirectToAction(nameof(this.ById), new { id = newsId });
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var viewModel = this.newsService.GetById<EditNewsViewModel>(id);
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditNewsViewModel model)
+        {
+            var newsId = this.newsService.Update(model.Id, model.Title, model.SecondTitle, model.Content, model.CategoryId, model.ImageUrl, model.Approved);
             return this.RedirectToAction(nameof(this.ById), new { id = newsId });
         }
     }

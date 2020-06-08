@@ -20,17 +20,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    <vc:nav-bar></vc:nav-bar>
                 </div>
             </div>
         </nav>
@@ -44,13 +34,13 @@
                     <a class="nav-link" asp-action="Index" asp-controller="Dashboard">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="All" asp-controller="Users">Users</a>
+                    <a class="nav-link" asp-area="" asp-action="Create" asp-controller="Categories">Add Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="Create" asp-controller="Exams">Add Exam</a>
+                    <a class="nav-link" asp-area="" asp-action="Create" asp-controller="News">Add News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="Create" asp-controller="Questions">Add Question</a>
+                    <a class="nav-link" asp-action="CreateAuthor" asp-controller="Users">Add Author</a>
                 </li>
             </ul>
         </div>
