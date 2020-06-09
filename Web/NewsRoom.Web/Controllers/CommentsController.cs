@@ -27,6 +27,11 @@
         [HttpPost]
         public async Task<IActionResult> Create(CreateCommentInputModel input)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
             var parentId =
                 input.ParentId == 0 ?
                     (int?)null :

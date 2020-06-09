@@ -30,6 +30,11 @@
         [HttpPost]
         public async Task<IActionResult> CreateAsync(CreateCategoryViewModel input)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
             var categoryId = await this.categoriesService.CreateAsync(input.Title, input.Description, input.ImageUrl);
             this.TempData["InfoMessage"] = "Category created!";
             return this.RedirectToAction(nameof(this.ById), new { id = categoryId });
