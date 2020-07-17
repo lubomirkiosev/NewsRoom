@@ -35,7 +35,7 @@
         public IActionResult Edit(EditNewsViewModel model)
         {
             this.newsService.Update(model.Id, model.Title, model.SecondTitle, model.Content, model.CategoryId, model.ImageUrl, model.Approved);
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("Index", "Dashboard");
         }
     }
 }

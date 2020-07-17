@@ -8,6 +8,7 @@
 
 @foreach (var news in Model.News)
 {
+<div>
     <ul class="list-unstyled">
         <li class="media">
             <a asp-controller="News" asp-action="ById" asp-route-id="@news.Id">
@@ -24,6 +25,7 @@
             </a>
         </li>
     </ul>
+</div>
 }
 
 <div class="g-mb-20">
