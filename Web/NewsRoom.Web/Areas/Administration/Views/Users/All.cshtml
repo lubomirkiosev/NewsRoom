@@ -1,0 +1,14 @@
+﻿@model ICollection<NewsRoom.Web.ViewModels.Administration.Dashboard.Users.UserViewModel>
+
+@{
+
+}
+
+<h1>Users</h1>
+
+@foreach (var user in Model)
+{
+    <a class="btn btn-default btn-lg active" role="button" asp-area="Administration" asp-action="AddRole" asp-controller="Dashboard" asp-route-email="@user.Email">
+        <h6>@user.Email</h6>
+    </a>
+}
